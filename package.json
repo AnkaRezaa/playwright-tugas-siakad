@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test:tugas": "playwright test --headed",
+    "test:p0": "playwright test tests/p0_happy_paths.spec.js --headed",
     "report:tugas": "playwright show-report"
   },
   "keywords": [],
