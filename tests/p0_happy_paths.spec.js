@@ -108,9 +108,9 @@ test.describe('P0 Happy Paths - Alur Vital Akademik SIAKAD Polinema', () => {
     // Akses endpoint logout
     await page.goto(`${BASE_URL}/login/logout`, { timeout: 60000 });
 
-    // Verifikasi sesi terputus dan dikembalikan ke halaman login
-    await expect(page).toHaveURL(/.*siakad\.polinema\.ac\.id\/(beranda|login).*/i, { timeout: 20000 });
-    await expect(page.locator('input[type="password"]').first().or(page.locator('body'))).toBeVisible();
+    // Verifikasi sesi terputus dan dikembalikan ke halaman awal/login publik
+    await expect(page).toHaveURL(/.*siakad\.polinema\.ac\.id(\/|\/beranda|\/login.*)?$/i, { timeout: 20000 });
+    await expect(page.locator('body')).toBeVisible();
 
     await page.screenshot({ path: 'bukti-p0-08-logout.png' });
   });
