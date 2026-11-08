@@ -7,6 +7,7 @@ import { defineConfig, devices } from '@playwright/test';
  */
 export default defineConfig({
   testDir: './',
+  testMatch: /.*\.spec\.js/,
   fullyParallel: false,
   
   // Folder untuk menyimpan hasil artefak & trace pengujian
