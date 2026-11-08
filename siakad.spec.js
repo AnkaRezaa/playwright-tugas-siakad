@@ -1,16 +1,11 @@
 // @ts-check
 import { test, expect } from '@playwright/test';
-import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
 
   // Kunjungi website sebelum setiap skenario pengujian dijalankan
   test.beforeEach(async ({ page }) => {
-    // Timeout 60 detik untuk toleransi koneksi jaringan di GitHub Actions
+    // Timeout 60 detik untuk toleransi koneksi jaringan
     await page.goto('https://siakad.polinema.ac.id/beranda', { timeout: 60000 });
   });
 
@@ -30,7 +25,7 @@ test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
 
     // 3. Simpan screenshot sebagai bukti pengujian tugas
     await page.screenshot({ 
-      path: path.join(__dirname, 'bukti-tc01-tampilan.png'), 
+      path: 'bukti-tc01-tampilan.png', 
       fullPage: true 
     });
   });
@@ -50,7 +45,7 @@ test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
 
     // Simpan screenshot bukti pengisian form
     await page.screenshot({ 
-      path: path.join(__dirname, 'bukti-tc02-input.png') 
+      path: 'bukti-tc02-input.png' 
     });
   });
 
@@ -94,10 +89,9 @@ test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
 
     // 5. Simpan tangkapan layar (screenshot) halaman dashboard mahasiswa
     await page.screenshot({ 
-      path: path.join(__dirname, 'bukti-tc04-dashboard-berhasil.png'), 
+      path: 'bukti-tc04-dashboard-berhasil.png', 
       fullPage: true 
     });
   });
 
 });
-
