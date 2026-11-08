@@ -77,15 +77,12 @@ test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
     // 2. Klik tombol Masuk / Login
     await buttonSubmit.click();
 
-    // 3. Verifikasi berhasil masuk ke dalam:
-    await page.waitForLoadState('networkidle');
+    // 3. Verifikasi berhasil login dan diarahkan ke portal mahasiswa
+    await expect(page).toHaveURL(/.*siakad\.polinema\.ac\.id\/mahasiswa.*/i, { timeout: 20000 });
 
-    // 4. Verifikasi elemen khas dashboard/halaman dalam muncul
-    const elemenDashboard = page.getByRole('link', { name: /keluar|logout/i })
-      .or(page.getByText(/selamat datang|dashboard|mahasiswa/i))
-      .first();
-
-    await expect(elemenDashboard).toBeVisible({ timeout: 15000 });
+    // 4. Verifikasi komponen/menu mahasiswa sudah termuat di dalam halaman
+    const menuMahasiswa = page.locator('a[href*="mahasiswa"]').first();
+    await expect(menuMahasiswa).toBeAttached({ timeout: 15000 });
 
     // 5. Simpan tangkapan layar (screenshot) halaman dashboard mahasiswa
     await page.screenshot({ 
