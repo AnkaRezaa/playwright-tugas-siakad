@@ -9,8 +9,8 @@ import { test, expect } from '@playwright/test';
 test.describe('P0 End-to-End Happy Path - SIAKAD Polinema', () => {
 
   const BASE_URL = 'https://siakad.polinema.ac.id';
-  const NIM = '254107023002';
-  const PASSWORD = 'Rezawalker#007';
+  const NIM = '********';
+  const PASSWORD = '********';
 
   test('Alur Lengkap Akademik: Login -> Dashboard -> KRS -> KHS -> Jadwal -> Keuangan -> Biodata -> Logout', async ({ page }) => {
 

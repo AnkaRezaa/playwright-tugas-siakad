@@ -63,8 +63,8 @@ test.describe('Tugas Pengujian Otomatis - Portal SIAKAD Polinema', () => {
   // TEST CASE 4: Uji Form Login dan Verifikasi Respon Autentikasi Server
   test('TC04 - Pengujian submit login dan verifikasi respon autentikasi server', async ({ page }) => {
     // Kredensial akun mahasiswa
-    const NIM = '254107023002';
-    const PASSWORD = 'Rezawalker#007';
+    const NIM = '********';
+    const PASSWORD = '********';
 
     const inputUsername = page.locator('input[name="username"], input[name="nim"], input[type="text"]').first();
     const inputPassword = page.locator('input[type="password"]').first();
