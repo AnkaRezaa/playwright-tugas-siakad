@@ -2,18 +2,16 @@
 import { defineConfig, devices } from '@playwright/test';
 
 /**
- * Konfigurasi Khusus Tugas SIAKAD Polinema
- * Seluruh hasil pengujian dan laporan disimpan langsung di dalam folder tugas-siakad
+ * Konfigurasi Tugas Pengujian Otomatis SIAKAD Polinema
  */
 export default defineConfig({
-  testDir: './',
-  testMatch: /.*\.spec\.js/,
+  testDir: './tests',
   fullyParallel: false,
   
   // Folder untuk menyimpan hasil artefak & trace pengujian
   outputDir: './test-results',
 
-  // Laporan HTML disimpan langsung di dalam folder tugas-siakad/playwright-report
+  // Laporan HTML disimpan langsung di dalam folder playwright-report
   reporter: [
     ['html', { outputFolder: './playwright-report', open: 'never' }],
     ['list']
@@ -31,4 +29,3 @@ export default defineConfig({
     },
   ],
 });
-
